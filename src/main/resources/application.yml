@@ -1,0 +1,24 @@
+server:
+  port: 8081
+
+env:
+  logging-topic: Logging_Topic
+
+spring:
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: group_id
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+  datasource:
+    url: jdbc:h2:mem:testdb;Mode=PostgreSQL
+    driverClassName: org.h2.Driver
+    username: username
+    password: password
+    platform: h2
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database-platform: org.hibernate.dialect.H2Dialect
